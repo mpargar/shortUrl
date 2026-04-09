@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "target": "es2022",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -17,7 +18,10 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noUncheckedSideEffectImports": true,
-    "types": ["node", "express"]
+    "types": ["node", "express"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

@@ -1,13 +1,6 @@
 import { Schema } from "express-validator";
 
 const CreateUserSchema: Schema = {
-  id: {
-    in: "body",
-    isInt: true,
-    toInt: true,
-    optional: false,
-    errorMessage: "ID es mandatorio y debe ser un número entero",
-  },
   email: {
     in: "body",
     isEmail: true,
