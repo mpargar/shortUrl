@@ -1,12 +1,11 @@
 import { Schema } from "express-validator";
 
 const CreateUserSchema: Schema = {
-  id: {
+  name: {
     in: "body",
-    isInt: true,
-    toInt: true,
+    isString: true,
     optional: false,
-    errorMessage: "ID es mandatorio y debe ser un número entero",
+    errorMessage: "Name es mandatorio y debe ser una cadena de texto",
   },
   email: {
     in: "body",
@@ -29,12 +28,6 @@ const CreateUserSchema: Schema = {
     optional: false,
     errorMessage: "Password es mandatorio y debe tener al menos 8 caracteres",
   },
-  name: {
-    in: "body",
-    isString: true,
-    optional: false,
-    errorMessage: "Name es mandatorio y debe ser una cadena de texto",
-  }
 };
 
 export default CreateUserSchema;
