@@ -4,6 +4,7 @@ import { checkSchema } from "express-validator";
 import CreateUserSchema from "./schema/createUserSchema";
 import validateRequest from "../utils/validateRequest";
 import createUserService from "./services/createUserService";
+import userDoesntExist from "../middleware/userDoesntExist";
 const Users = express.Router();
 
 Users.use(express.json());
@@ -12,6 +13,7 @@ Users.post(
   "/",
   checkSchema(CreateUserSchema),
   validateRequest,
+  userDoesntExist,
   async (req: Request, res: Response) => {
     const { status, ...rest } = await createUserService(req.body);
     res.status(status).json(rest);

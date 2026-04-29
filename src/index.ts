@@ -2,6 +2,7 @@ import "reflect-metadata";
 import express from "express";
 import Users from "./user/Users";
 import { AppDataSource } from "./data-source";
+import { generateSessionJwt, validateSessionJwt } from "./utils/jwt";
 
 const app = express();
 app.use(express.json());
