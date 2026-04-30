@@ -1,9 +1,9 @@
 import { ServiceWithProps } from "../../utils/types";
 import UserDAL from "../DAL/UserDAL";
-import { FindUserDTO, SafeUser } from "../types/User";
+import { FindUserDTO, User } from "../types/User";
 
 
-const findUser: ServiceWithProps<SafeUser | null, FindUserDTO> = async ({
+const findUser: ServiceWithProps<User | null, FindUserDTO> = async ({
   email,
 }) => {
   try {

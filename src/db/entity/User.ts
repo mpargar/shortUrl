@@ -27,6 +27,11 @@ export class User {
   })
   isVerified: boolean;
 
+  @Column("text", {
+    nullable: true,
+  })
+  verificationCode: string | null;
+
   @OneToMany(() => Url, (urls) => urls.user)
   urls: Url[];
 }

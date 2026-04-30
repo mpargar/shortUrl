@@ -9,13 +9,15 @@ import findUser from "../user/services/findUser";
  */
 const userDoesExist = async (req: Request, res: Response, next: NextFunction) => {
   const { email } = req.body;
-  const {status} = await findUser({ email });
+  const {status, data: user} = await findUser({ email });
   if (status !== 200) {
     return res.status(status).json({
       message: "User not found",
       data: null,
     });
   }
+  // Insert the user data into the request body for downstream middlewares or route handlers to use
+  req.body.user = user;
   return next();
 }
 
